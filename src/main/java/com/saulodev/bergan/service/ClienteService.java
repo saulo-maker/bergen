@@ -14,11 +14,11 @@ public class ClienteService {
     @Autowired
     private ClienteRepository repository;
     
-	public List<Cliente> listar() {
+	public List<Cliente> todos() {
 		return repository.findAll();
 	}
 
-	public Cliente findById(Long id) {
+	public Cliente buscarPorUm(Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
