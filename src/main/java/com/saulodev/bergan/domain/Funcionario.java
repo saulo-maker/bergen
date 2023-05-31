@@ -30,7 +30,7 @@ public class Funcionario {
     @Column(name = "comissao", unique = false, nullable = false)
     private Float comissao;
 
-    @OneToOne
+    @OneToOne(mappedBy="respAgendamento")
     private Agendamento agendamento;
 
 

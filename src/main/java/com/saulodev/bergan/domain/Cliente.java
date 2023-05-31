@@ -1,12 +1,9 @@
 package com.saulodev.bergan.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,9 +32,9 @@ public class Cliente {
     @Column(name = "uf", length = 2, nullable = false)
     private String uf;
 
-    @JsonFormat
-    @OneToMany(mappedBy="cliente", cascade= CascadeType.ALL)
-    private List<Agendamento> agendamentos = new ArrayList<>();
+    @JsonDeserialize
+    @OneToMany(mappedBy="cliente")
+    List<Agendamento> agendamentos;
 
 
     public Long getId() {

@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -36,9 +35,11 @@ public class Agendamento {
     private String observacao;
 
     @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
     @OneToOne
+    @JoinColumn(name = "respAgendamento")
     private Funcionario respAgendamento;
 
     @OneToMany(mappedBy = "agendamento")
