@@ -20,14 +20,14 @@ public class ClienteController {
     private ClienteService service;
     
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> procurarCliente(@PathVariable Long id) {
-        Cliente entity = service.findById(id);
+    public ResponseEntity<Cliente> buscarPorUm(@PathVariable Long id) {
+        Cliente entity = service.buscarPorUm(id);
         return ResponseEntity.ok(entity);
     }
     
     @GetMapping
-	public List<Cliente> listar() {
-		return service.listar();
+	public List<Cliente> listarTodos() {
+		return service.todos();
 	}
 
 }

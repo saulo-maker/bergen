@@ -2,7 +2,7 @@ package com.saulodev.bergan.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,10 +32,8 @@ public class Cliente {
     @Column(name = "uf", length = 2, nullable = false)
     private String uf;
 
-    @JsonDeserialize
     @OneToMany(mappedBy="cliente")
     List<Agendamento> agendamentos;
-
 
     public Long getId() {
         return this.id;
