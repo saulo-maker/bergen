@@ -77,12 +77,4 @@ public class Cliente {
         this.uf = uf;
     }
 
-    public List<Agendamento> getAgendamentos() {
-        return this.agendamentos;
-    }
-
-    public void setAgendamentos(List<Agendamento> agendamentos) {
-        this.agendamentos = agendamentos;
-    }
-
 }
