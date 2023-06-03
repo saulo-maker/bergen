@@ -1,5 +1,7 @@
 package com.saulodev.bergan.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +32,7 @@ public class Funcionario {
     @Column(name = "comissao", unique = false, nullable = false)
     private Float comissao;
 
+    @JsonIgnore
     @OneToOne(mappedBy="respAgendamento")
     private Agendamento agendamento;
 
