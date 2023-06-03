@@ -1,8 +1,5 @@
 package com.saulodev.bergan.controllers;
 
-import com.saulodev.bergan.domain.Cliente;
-import com.saulodev.bergan.service.ClienteService;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,39 +13,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.saulodev.bergan.domain.Servico;
+import com.saulodev.bergan.service.ServicoService;
+
 @RestController
-@RequestMapping(value = "/cliente")
-public class ClienteController {
+@RequestMapping(value = "/servico")
+public class ServicoController {
     
     @Autowired
-    private ClienteService service;
+    private ServicoService service;
 
     @RequestMapping(value = "deletar/{id}", method = RequestMethod.DELETE)
-    public void deletarClienteId(@PathVariable Long id) {
-        service.deletarClienteId(id);
+    public void deletarServicoId(@PathVariable Long id) {
+        service.deletarServicoId(id);
         System.out.println("Deletado com sucesso...");
     }
 
     @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
-    public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {
-            service.cadastrar(cliente);
-        return ResponseEntity.ok(cliente);
+    public ResponseEntity<Servico> cadastrarCliente(@RequestBody Servico servico) {
+            service.cadastrar(servico);
+        return ResponseEntity.ok(servico);
     }
-
+    
     @PutMapping(value = "atualizar/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Cliente> atualizarClienteId(@PathVariable Long id, @RequestBody Cliente cliente) {
-            service.alterarCliente(id, cliente);
-        return ResponseEntity.ok(cliente);
+    public ResponseEntity<Servico> atualizarClienteId(@PathVariable Long id, @RequestBody Servico servico) {
+            service.alterarServico(id, servico);
+        return ResponseEntity.ok(servico);
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarPorUm(@PathVariable Long id) {
-            Cliente entity = service.buscarPorUm(id);
-        return ResponseEntity.ok(entity);
+    public ResponseEntity<Servico> buscarPorUm(@PathVariable Long id) {
+        return service.buscarPorUm(id);
     }
     
     @GetMapping
-	public List<Cliente> listarTodos() {
+	public List<Servico> listarTodos() {
 		return service.todos();
 	}
 

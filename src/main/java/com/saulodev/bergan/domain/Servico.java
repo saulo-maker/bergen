@@ -31,4 +31,53 @@ public class Servico {
 
     @ManyToOne
     private Agendamento agendamento;
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return this.descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Double getPrecoCusto() {
+        return this.precoCusto;
+    }
+
+    public void setPrecoCusto(Double precoCusto) {
+        this.precoCusto = precoCusto;
+    }
+
+    public Double getPrecoVenda() {
+        return this.precoVenda;
+    }
+
+    public void setPrecoVenda(Double precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+
+    public Agendamento getAgendamento() {
+        return this.agendamento;
+    }
+
+    public void setAgendamento(Agendamento agendamento) {
+        this.agendamento = agendamento;
+    }
+
 }
