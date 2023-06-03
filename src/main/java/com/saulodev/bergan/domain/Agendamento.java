@@ -3,6 +3,8 @@ package com.saulodev.bergan.domain;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,6 +44,7 @@ public class Agendamento {
     @JoinColumn(name = "respAgendamento")
     private Funcionario respAgendamento;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "agendamento")
     private List<Servico> servicos;
 
