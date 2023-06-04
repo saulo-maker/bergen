@@ -16,15 +16,14 @@ public class FuncionarioService {
     @Autowired
     private FuncionarioRepository repository;
 
-    public Funcionario alterarFuncionario(@PathVariable Long id, @RequestBody Funcionario funcionario) {
+    public Funcionario atualizaFuncionario(@PathVariable Long id, @RequestBody Funcionario funcionario) {
 
 		Funcionario funcionarioUpdate = repository.findById(id).orElse(null);
-		funcionarioUpdate.setId(funcionario.getId());
-		funcionarioUpdate.setLogin(funcionario.getLogin());
-		funcionarioUpdate.setSenha(funcionario.getSenha());
-		funcionarioUpdate.setFone(funcionario.getFone());
-		funcionarioUpdate.setEmail(funcionario.getEmail());
+        funcionarioUpdate.setLogin(funcionario.getLogin());
+        funcionarioUpdate.setFone(funcionario.getFone());
         funcionarioUpdate.setComissao(funcionario.getComissao());
+        funcionarioUpdate.setEmail(funcionario.getEmail());
+        funcionarioUpdate.setSenha(funcionario.getSenha());
 
 		return repository.save(funcionarioUpdate);
 	}
